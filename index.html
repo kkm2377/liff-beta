@@ -5,9 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>liff-beta</title>
         <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
-        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.11.0/luivendor.js"></script>
-        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.11.0/lui-navigation-back.js"></script>
-        <script type="module" src="https://line-objects-internal.com/assets/lui/edge/versions/1.11.0/lui-navigation-bar.js"></script>
         <script type="text/javascript">
             /**
             * Initialize LIFF
@@ -94,7 +91,7 @@ liff.addToHomeScreen({
     // Error happens during create shorcut (permission error, etc...)
     console.log(err.code, err.message);
 });
-                        });
+                        })
                     });
           
         </script>
@@ -105,11 +102,6 @@ liff.addToHomeScreen({
     <body>
                 <h3>環境やトークルームの情報を取得222</h3>
                 <input type="button" id="add_to_home" value="add_to_home"/>
-                <div id='container'>
-                    <p>
-                        
-                    </p>
-                </div>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
