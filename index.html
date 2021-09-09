@@ -92,8 +92,8 @@
                                 // status == 0:   // unknown. iOS always return 0
                                 // status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
                                 if(status == 1) {
-                                    let ele = document.getElementById('container');
-                                    ele.innerHTML += 'complete!!';
+//                                     let ele = document.getElementById('container');
+//                                     ele.innerHTML += 'complete!!';
                                 }
                             }).catch((err: LiffError) => {
                                 // Error happens during create shorcut (permission error, etc...)
@@ -211,29 +211,13 @@
     </head>
     
     <body>
-        <div class="content light-background-container">
-            <lui-navigation-bar-spacer></lui-navigation-bar-spacer>
-            <lui-navigation-bar menu-style="darkTranslucent">
-                <lui-navigation-back slot="left"></lui-navigation-back>
-                <h1 slot="center">very long titleeeeeeeeeeeeee</h1>
-            </lui-navigation-bar>
-            <div class="content" style="padding: 10px 20px; color: white;">
-                <lui-navigation-back disable-auto-navigation @lui-button-click=${handleButtonClicked}></lui-navigation-back>
-                <div id="log"></div>
-                <button @click=${() => manualNavigate()}>manualNavigation</button>
-                <p>
-                    ${generateDummyText()}
-                </p>
-                <h2>HTML Forms to https://httpbin.org/post with no parameter</h2>
-                <form action="https://httpbin.org/post" method="post">
-                    <input type="submit" value="Submit">
-                </form>
                 <h3>環境やトークルームの情報を取得222</h3>
                 <input type="button" id="add_to_home" value="add_to_home"/>
                 <div id='container'>
                     <p>
                         
                     </p>
+                </div>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
@@ -244,8 +228,5 @@
                 <video id="video" autoplay style="width: 500px; height: 500px;">Video stream not available.</video>
                 <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
                 <textarea id="log" style="width:96%;height:350px;"></textarea>
-            </div>
-        </div>
-      </div>
     </body>
 </html>
