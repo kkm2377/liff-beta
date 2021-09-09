@@ -53,14 +53,7 @@
                                 external: true
                             });
                         });
-
-                        document.getElementById('home').addEventListener('click', () => {
-                            liff.addToHomeScreen({
-                                name: "LINE",
-                                iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
-                                state: "https://liff.line-beta.me/1651833066-0omDANP2"
-                            });
-                        });
+                    
 
                         document.getElementById('pic').addEventListener('click', () => {
                             var videoDom = document.getElementById('video');
@@ -86,6 +79,30 @@
                                 });
                             }
                         });
+                    
+                    
+                   
+                        document.getElementById('add_to_home').addEventListener('click', () => {
+                            liff.addToHomeScreen({
+                                name: "LINE",
+                                iconUrl: "https://obs-beta.line-scdn.net/0hi2dU1wubNh1ZLCCnLGVJSntxPX9qTigWexgyezx-HU0oSQRLLjEmH3RQDVY_TwQ3LjUyJidHHkkyYAMgZiscAyB8DSw8dDc/f256x256",
+                                state: "/search?q=foo"
+                            }).then((status) => {
+                                // status == -1:  // canceled. If user cancel to add, return -1 (only Android under 8)
+                                // status == 0:   // unknown. iOS always return 0
+                                // status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
+                                if(status == 1) {
+                                    let ele = document.getElementById('container');
+                                    ele.innerHTML += 'complete!!';
+                                }
+                            }).catch((err: LiffError) => {
+                                // Error happens during create shorcut (permission error, etc...)
+                                document.getElementById('add_to_home').append
+                            });
+                        });
+                    
+                    
+                    
 
                         document.getElementById('flex').addEventListener('click', () => {
                             liff.sendMessages([{
@@ -194,7 +211,7 @@
     </head>
     
     <body>
-<!--         <div class="content light-background-container">
+        <div class="content light-background-container">
             <lui-navigation-bar-spacer></lui-navigation-bar-spacer>
             <lui-navigation-bar menu-style="darkTranslucent">
                 <lui-navigation-back slot="left"></lui-navigation-back>
@@ -212,25 +229,22 @@
                     <input type="submit" value="Submit">
                 </form>
                 <h3>環境やトークルームの情報を取得222</h3>
-                <input type="button" id="home" value="home"/>
+                <input type="button" id="add_to_home" value="add_to_home"/>
+                <div id='container'>
+                    <p>
+                        
+                    </p>
                 <input type="button" id="go" value="実行"/>
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
                 <input type="button" id="qrcode" value="QRcode"/>
+
                 
                 <video id="video" autoplay style="width: 500px; height: 500px;">Video stream not available.</video>
                 <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
                 <textarea id="log" style="width:96%;height:350px;"></textarea>
             </div>
-        </div> -->
-        
-<div>
-  <lui-navigation-bar-spacer menu-style="darkTranslucent" platform="auto"></lui-navigation-bar-spacer>
-  <lui-navigation-bar menu-style="darkTranslucent" platform="auto">
-    <lui-navigation-back slot="left"></lui-navigation-back>
-    <h1 slot="center">very long titleeeeeeeeeeeeee</h1>
-  </lui-navigation-bar>
-</div>
+        </div>
     </body>
 </html>
