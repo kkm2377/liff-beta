@@ -97,7 +97,7 @@
                                 }
                             }).catch((err: LiffError) => {
                                 // Error happens during create shorcut (permission error, etc...)
-                                document.getElementById('add_to_home').append
+                                console.log(err.code, err.message);
                             });
                         });
                     
