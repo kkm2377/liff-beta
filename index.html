@@ -2,7 +2,7 @@
 <html lang="jp" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <title>liff-beta</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
@@ -182,25 +182,30 @@
                         console.log(err.code, err.message);
                     })
             })
-        </script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        body {
-            padding-left: /* safe-area-inset-left */ ;
-            padding-right: /* safe-area-inset-right */ ;
-            }
         const setNodeText = (selector, text) => {
             document.querySelector(selector).textContent = text;
         };
         
         const handleButtonClicked = e => {
-        console.log(e);
-        setNodeText('#log', 'button clicked');
+            console.log(e);
+            setNodeText('#log', 'button clicked');
         };
-        
+            
         const manualNavigate = () => {
-        document.querySelector('lui-navigation-back').navigateBack();
+            document.querySelector('lui-navigation-back').navigateBack();
         };
+        </script>
+        
+        
+        <style>
+        body {
+            padding-left: /* safe-area-inset-left */ ;
+            padding-right: /* safe-area-inset-right */ ;
+            }
+        </style>
+        
     </head>
+    
     <body>
         <div class="content light-background-container">
             <lui-navigation-bar-spacer></lui-navigation-bar-spacer>
@@ -209,10 +214,7 @@
                 <h1 slot="center">very long titleeeeeeeeeeeeee</h1>
             </lui-navigation-bar>
             <div class="content" style="padding: 10px 20px; color: white;">
-                <lui-navigation-back
-                                     disable-auto-navigation
-                                     @lui-button-click=${handleButtonClicked}
-                                     ></lui-navigation-back>
+                <lui-navigation-back disable-auto-navigation @lui-button-click=${handleButtonClicked}></lui-navigation-back>
                 <div id="log"></div>
                 <button @click=${() => manualNavigate()}>manualNavigation</button>
                 <p>
