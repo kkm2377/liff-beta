@@ -52,11 +52,9 @@
                         });
                     
                     
-                        document.getElementById('prompt').addEventListener('click', () => {
-                            let comment = window.prompt("LIFFブラウザでwindow.prompt()でdefaultメッセージから変更しない場合、OKを押しても値が渡りません","default message");
-                            if(comment){
-	                            document.getElementById("log").value = comment;
-                            }
+                        document.getElementById('parameter').addEventListener('click', () => {
+				var patId = getParameterByName('category'); // 1060192
+	                        document.getElementById("patId").value = comment;
                         });
                     
                         document.getElementById('qrcode').addEventListener('click', () => {
@@ -95,7 +93,7 @@
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
-                <input type="button" id="prompt" value="prompt"/>
+                <input type="button" id="parameter" value="parameter"/>
                 <input type="button" id="qrcode" value="QRcode"/>
                 <a href="https://www.naver.com">naver</a>
                 <a href="https://liff.line-beta.me/1651833066-Bk0XW1Ng">LIFF-to-LIFF</a>
