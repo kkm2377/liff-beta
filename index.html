@@ -53,7 +53,10 @@
                     
                     
                         document.getElementById('prompt').addEventListener('click', () => {
-                            let sign = prompt("What's your sign?");
+                            let comment = window.prompt("LIFFブラウザでwindow.prompt()でdefaultメッセージから変更しない場合、OKを押しても値が渡りません","default message");
+                            if(comment){
+	                            document.getElementById("log").value = comment;
+                            }
                         });
                     
                         document.getElementById('qrcode').addEventListener('click', () => {
