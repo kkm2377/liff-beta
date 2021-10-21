@@ -52,6 +52,10 @@
                         });
                     
                     
+                        document.getElementById('prompt').addEventListener('click', () => {
+                            let sign = prompt("What's your sign?");
+                        });
+                    
                         document.getElementById('qrcode').addEventListener('click', () => {
                             if (liff.scanCode) {
                                 liff.scanCode().then(result => {
@@ -88,6 +92,7 @@
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
+                <input type="button" id="prompt" value="prompt"/>
                 <input type="button" id="qrcode" value="QRcode"/>
                 <a href="https://www.naver.com">naver</a>
                 <a href="https://liff.line-beta.me/1651833066-Bk0XW1Ng">LIFF-to-LIFF</a>
