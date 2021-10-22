@@ -54,7 +54,12 @@
                     
                         document.getElementById('parameter').addEventListener('click', () => {
 				var patId = getParameterByName('category'); // 1060192
-	                        document.getElementById("log").value = patId;
+				if(patId){
+					document.getElementById("log").value = patId;
+
+				}else{
+					document.getElementById("log").value = "NULL";
+				}
                         });
                     
                         document.getElementById('qrcode').addEventListener('click', () => {
