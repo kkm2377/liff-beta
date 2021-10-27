@@ -22,6 +22,9 @@
                         withLoginOnExternalBrowser: true, // Enable automatic login process
                     })
                     .then(() => {
+			liff.ready.then(() => {
+  				alert(window.location.href);
+			})
                         document.getElementById('go').addEventListener('click', () => {
                             document.getElementById('log').value =
                               '○言語設定\n' +
