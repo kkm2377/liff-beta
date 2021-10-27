@@ -24,6 +24,7 @@
                     .then(() => {
 			liff.ready.then(() => {
   				alert(window.location.href);
+				alert(location.hash);
 			})
                         document.getElementById('go').addEventListener('click', () => {
                             document.getElementById('log').value =
