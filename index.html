@@ -6,11 +6,6 @@
         <title>liff-beta</title>
         <script src="https://line-objects-internal.com/assets/liff/edge/2/sdk.js"></script>
         <script type="text/javascript">
-		function getParameterByName(name) { 
-			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); 
-			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search); 
-			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); 
-		}
             /**
             * Initialize LIFF
             * @param {string} myLiffId The LIFF app ID of the selected element
@@ -22,10 +17,6 @@
                         withLoginOnExternalBrowser: true, // Enable automatic login process
                     })
                     .then(() => {
-			liff.ready.then(() => {
-  				alert(window.location.href);
-				alert(location.hash);
-			})
                         document.getElementById('go').addEventListener('click', () => {
                             document.getElementById('log').value =
                               '○言語設定\n' +
@@ -60,16 +51,7 @@
                             });
                         });
                     
-                    
-                        document.getElementById('parameter').addEventListener('click', () => {
-				var patId = getParameterByName('category'); // 1060192
-				if(patId){
-					document.getElementById("log").value = patId;
-
-				}else{
-					document.getElementById("log").value = "NULL";
-				}
-                        });
+                   
                     
                         document.getElementById('qrcode').addEventListener('click', () => {
                             if (liff.scanCode) {
@@ -79,7 +61,25 @@
                             }
                         });
                     
-                    
+                        // Send message
+   			 document.getElementById('message').addEventListener('click', function () {
+        			// https://developers.line.me/en/reference/liff/#liffsendmessages()
+				height = document.getElementById('height').value;
+				weight = document.getElementById('weight').value;
+        			liff.sendMessages([{
+					type: 'text',
+					text: "Your height is " + height
+				}, {
+					type: 'sticker',
+					packageId: '2',
+					stickerId: '144'
+				}]).then(function () {
+					window.alert("Sent");
+				}).catch(function (error) {
+					window.alert("Error sending message: " + error);
+				});
+			 });
+		};
                    
                         document.getElementById('add_to_home').addEventListener('click', () => {
                             liff.addToHomeScreen({
@@ -107,11 +107,15 @@
                 <input type="button" id="popup" value="popup"/>
                 <input type="button" id="pic" value="pic"/>
                 <input type="button" id="flex" value="flex"/>
-                <input type="button" id="parameter" value="parameter"/>
                 <input type="button" id="qrcode" value="QRcode"/>
+	    	<input type="button" id="message" value="message"/>
                 <a href="https://www.naver.com">naver</a>
                 <a href="https://liff.line-beta.me/1651833066-Bk0XW1Ng">LIFF-to-LIFF</a>
                 <a href="https://android-liff-test.herokuapp.com/index.html" target="_blank">IAB</a>
                 <textarea id="log" style="width:96%;height:350px;"></textarea>
+	    	<label>Height</label>
+	    	<form input="text" id="height"/>
+	    	<label>weight</label>
+	    	<form input="text" id="weight"/>
     </body>
 </html>
