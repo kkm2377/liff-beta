@@ -63,10 +63,11 @@
                     
 			
 			document.getElementById('message').addEventListener('click', () => {
+				var height=document.getElementById("height").value;
 				liff.sendMessages([
 					{
 						type: 'text',
-						text: 'your height is ' + document.getElementById('height').value;
+						text: 'your height is ' + height
 					}
 				])
 					.then(() => {
