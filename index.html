@@ -64,20 +64,19 @@
                         // Send message
    			 document.getElementById('message').addEventListener('click', function () {
         			// https://developers.line.me/en/reference/liff/#liffsendmessages()
-        			liff.sendMessages([{
-					type: 'text',
-					text: "Your height is " + document.getElementById('height').value
-				}, {
-					type: 'sticker',
-					packageId: '2',
-					stickerId: '144'
-				}]).then(function () {
-					window.alert("Sent");
-				}).catch(function (error) {
-					window.alert("Error sending message: " + error);
-				});
-			 });
-		};
+				 liff.sendMessages([
+					 {
+						 type: 'text',
+						 text: 'Hello, World!'
+					 }
+				 ])
+					 .then(() => {
+					 console.log('message sent');
+				 })
+					 .catch((err) => {
+					 console.log('error', err);
+				 });
+			 };
                    
                         document.getElementById('add_to_home').addEventListener('click', () => {
                             liff.addToHomeScreen({
