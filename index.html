@@ -64,11 +64,9 @@
                         // Send message
    			 document.getElementById('message').addEventListener('click', function () {
         			// https://developers.line.me/en/reference/liff/#liffsendmessages()
-				height = document.getElementById('height').value;
-				weight = document.getElementById('weight').value;
         			liff.sendMessages([{
 					type: 'text',
-					text: "Your height is " + height
+					text: "Your height is " + document.getElementById('height').value
 				}, {
 					type: 'sticker',
 					packageId: '2',
