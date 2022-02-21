@@ -96,8 +96,24 @@
                             })
                         });
 			document.getElementById('subwindow').addEventListener('click', () => {
-				console.log("heyheyhey");
-                        });
+				$openSubwindow.addEventListener('click', () => {
+					liff.subWindow.open({
+						url: 'https://liff.line-beta.me/1651833066-zO3vlq60/beta/hi.html',
+						native: {
+							height: 'full',
+							closeButtonPosition: 'right',
+							closeButtonColor: 'black'
+						}
+					})
+						.catch((error) => {
+						console.log(error.message);
+					})
+						.then(() => {
+						console.log("You Good");
+						// opened successfully
+					})
+				});
+			});
 
                 })
             });
