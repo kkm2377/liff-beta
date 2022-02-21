@@ -47,6 +47,7 @@
                               'liff.getProfile()=' + JSON.stringify(liff.getProfile()) + '\n' +
                               '○ Create URL\n' +
                               'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' ;
+			      'liff.isApiAvailable()=' +liff.isApiAvailable(param = 'subwindowOpen') + '\n' ;
                         });
                         document.getElementById('popup').addEventListener('click', () => {
                             liff.openWindow({
@@ -95,21 +96,10 @@
                                 // status == 1:   // added. If shortcut created, return 1 (Android above 8 will always be 1)
                             })
                         });
+			
 			document.getElementById('subwindow').addEventListener('click', () => {
 					liff.subWindow.open({
 						url: 'https://liff.line-beta.me/1651833066-zO3vlq60',
-						native: {
-							height: 'full',
-							closeButtonPosition: 'right',
-							closeButtonColor: 'black'
-						}
-					})
-						.catch((error) => {
-						console.log(error.message);
-					})
-						.then(() => {
-						console.log("You Good");
-						// opened successfully
 					})
 
 			});
