@@ -59,11 +59,11 @@
                     
                    
                     
-                        document.getElementById('qrcode').addEventListener('click', () => {
+                        document.getElementById('logout').addEventListener('click', () => {
 				liff.logout()
                         });
 			
-			document.getElementById('logout').addEventListener('click', () => {
+			document.getElementById('qrcode').addEventListener('click', () => {
                             if (liff.scanCode) {
                                 liff.scanCode().then(result => {
                                     result = { value: '' }
