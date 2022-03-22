@@ -12,8 +12,8 @@
             * @param {string} myLiffId The LIFF app ID of the selected element
             */
             document.addEventListener("DOMContentLoaded", () => {
-		var ref = liff.getProfilePlus();
-		console.log(ref);
+// 		var ref = liff.getProfilePlus();
+// 		console.log(ref);
                 liff
                     .init({
                         liffId: "1651833066-zO3vlq60",
@@ -51,6 +51,8 @@
                               '○ Create URL\n' +
                               'liff.permanentLink.createUrl()=' + liff.permanentLink.createUrl() + '\n' ;
 			      'liff.isApiAvailable()=' +liff.isApiAvailable(param = 'subwindowOpen') + '\n' ;
+				var ref = liff.getProfilePlus();
+				console.log(ref);
                         });
 //                         document.getElementById('popup').addEventListener('click', () => {
 //                             liff.openWindow({
